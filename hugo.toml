@@ -1,0 +1,33 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 'hcpss-hugo-equity'
+[security]
+[security.http]
+methods = ["GET", "POST"] # Allowed HTTP methods
+urls = ["https://api.hocoschools.org/schools.json", "https://api.hocoschools.org/schools/.*.json", "https://.*.hcpss.org/.*"]
+[menus]
+  [[menus.main]]
+    name = 'New Student and Parent Orientations/Information Nights'
+    URL = 'https://www.hcpss.org/schools/back-to-school-nights/'
+    weight = 10
+  [[menus.main]]
+    name = 'School Supply Lists'
+    URL = 'https://www.hcpss.org/schools/school-supply-lists/'
+    weight = 20
+  [[menus.main]]
+    name = 'School Start and Dismissal Times'
+    pageRef = 'https://www.hcpss.org/schools/opening-and-closing-times/'
+    weight = 30
+  [[menus.main]]
+    name = 'Transportation'
+    URL = 'https://www.hcpss.org/schools/transportation/'
+    weight = 40
+  [[menus.main]]
+    name = 'Food and Nutrition Services'
+    URL = 'https://www.hcpss.org/food-services/'
+    weight = 50
+  [[menus.main]]
+    name = 'What Your Child Will Learn Guides'
+    URL = 'https://www.hcpss.org/academics/what-your-child-will-learn-guides/'
+    weight = 60
