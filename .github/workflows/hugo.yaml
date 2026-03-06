@@ -96,6 +96,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+          name: site
   deploy:
     environment:
       name: github-pages
@@ -114,7 +115,7 @@ jobs:
           fetch-depth: 0
 
       - name: Download Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-pages-artifact@v3
         with:
           name: site
 
