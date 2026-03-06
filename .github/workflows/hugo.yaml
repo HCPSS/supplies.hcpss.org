@@ -122,10 +122,10 @@ jobs:
 
       - name: Untar the artifact
         run: |
-          tar -xf ./public/artifact.tar -C ./public
+          tar -xf ./public/github-pages/artifact.tar -C ./public
 
       - name: Deploy to Branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: ./public/github-pages
+          folder: ./public
