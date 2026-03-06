@@ -1,0 +1,45 @@
+{{ range $.Site.Data.manifest }}
+    <section class="contents">
+        <h2>{{ .type }}</h2>
+        <div class="thirds">
+            {{ $num_schools := len .schools }}
+            {{ $num_rows := div (len .schools) 3 }}
+            {{ if not (modBool (len .schools) 3) }}
+                {{ $num_rows = add $num_rows 1 }}
+            {{ end }}
+
+            {{ $counter := 1 }}
+            {{ range $school := .schools }}
+                {{ $url := (printf "https://%s.hcpss.org/supply-list/2026-2027" $school.acronym) }}
+
+                {{ $is_live := false }}
+                {{ with try (resources.GetRemote $url) }}
+                    {{ with .Err }}
+                        {{ $is_live = false }}
+                    {{ else }}
+                        {{ $is_live = true }}
+                    {{ end }}
+                {{ end }}
+
+                <p>
+                    {{ if $is_live }}
+                        <a href="https://{{ $school.acronym }}.hcpss.org/supply-list/2026-2027">
+                    {{ end }}
+                    {{ $school.name }}
+                    {{ if $is_live }}
+                        </a>
+                    {{ else }}
+                        (coming soon)
+                    {{ end }}
+                </p>
+
+                {{ if eq $counter $num_rows }}
+                    {{ $counter = 1 }}
+        </div><div class="thirds">
+                {{ else }}
+                    {{ $counter = add $counter 1 }}
+                {{ end }}
+            {{ end }}
+        </div>
+    </section>
+{{ end }}
