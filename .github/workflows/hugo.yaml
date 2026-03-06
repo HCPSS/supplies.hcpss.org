@@ -4,7 +4,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '30 * * * *'
+    - cron: '30 2 * * *'
   workflow_dispatch:
 permissions:
   contents: read
@@ -106,3 +106,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Deploy to Branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: .
+          commit_message: "Deploy to GitHub Pages"
