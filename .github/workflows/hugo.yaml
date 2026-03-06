@@ -111,4 +111,3 @@ jobs:
         with:
           branch: gh-pages
           folder: .
-          commit_message: "Deploy to GitHub Pages"
