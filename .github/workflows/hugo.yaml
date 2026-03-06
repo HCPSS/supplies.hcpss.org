@@ -93,10 +93,10 @@ jobs:
           path: ${{ runner.temp }}/hugo_cache
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
       - name: Upload artifact
+        id: upload-artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-          name: site
   deploy:
     environment:
       name: github-pages
@@ -117,7 +117,7 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-pages-artifact@v3
         with:
-          name: site
+          name: "${{ steps.upload-artifact.outputs.artifact_id }}"
 
       - name: Deploy to Branch
         uses: JamesIves/github-pages-deploy-action@v4
