@@ -108,11 +108,11 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-    #   - name: Checkout
-    #     uses: actions/checkout@v6
-    #     with:
-    #       submodules: recursive
-    #       fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+          fetch-depth: 0
 
       - name: Download Artifacts
         uses: actions/download-artifact@v4
