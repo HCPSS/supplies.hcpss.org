@@ -123,7 +123,10 @@ jobs:
       - name: Untar the artifact
         run: |
           tar -xf ./public/github-pages/artifact.tar -C ./public
-          && rm -rf ./public/github-pages
+
+      - name: Clean up artifact files
+        run: |
+          rm -rf ./public/github-pages
 
       - name: Deploy to Branch
         uses: JamesIves/github-pages-deploy-action@v4
